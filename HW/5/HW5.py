@@ -6,19 +6,10 @@
 
 import hashlib
 def is_valid_password(password):
-    flag1=False
-    flag2 = False
-    flag3 = False
-    for c in password:
-        if c.isdigit():
-            flag1=True
-        elif c==c.upper():
-            flag2=True
-        elif c == c.lower():
-            flag3=True
-    if len(password) >=8 and flag1 and flag3 and flag2:
-        return True
-    else: return False
+    upp = [i for i in password if i.isupper()]
+    low = [i for i in password if i.islower()]
+    dig = [i for i in password if i.isdigit()]
+    return all([len(password) >= 8, upp, low, dig])
 
 password = input('Введите ваш пароль: ')
 while not is_valid_password(password):
