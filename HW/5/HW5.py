@@ -16,4 +16,3 @@ while not is_valid_password(password):
     password= input('Пароль некорректен. Введите ваш пароль: ')
     is_valid_password(password)
 print(f'Хэш-значение пароля: {hashlib.sha256(password.encode()).hexdigest()}')
-
